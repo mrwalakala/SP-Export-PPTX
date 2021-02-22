@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope) {
+  /* widget controller */
+  var c = this;
+	
+	
+	
+	$scope.downloadPptx = function() {
+		// 1. Create a new Presentation
+		var pres = new PptxGenJS();
+
+		// 2. Add a Slide
+		var slide = pres.addSlide();
+
+		// 3. Add one or more objects (Tables, Shapes, Images, Text and Media) to the Slide
+		var textboxText = "Hello World from PptxGenJS!";
+		var textboxOpts = { x: 1, y: 1, color: '363636', fill: { color:'F1F1F1' }, align: "center" };
+		slide.addText(textboxText, textboxOpts);
+
+		// 4. Save the Presentation
+		pres.writeFile("Sample Presentation.pptx");
+	}
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>pptx_export_example</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>PPTX Export Example</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>alberto</sys_created_by>
+        <sys_created_on>2021-01-25 19:50:30</sys_created_on>
+        <sys_id>d95e8cb707392010d6f6f66c7c1ed045</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>PPTX Export Example</sys_name>
+        <sys_package display_value="SP PPTX Export" source="x_404466_sp_pptx_e">cafd48b307f52010d6f6f66c7c1ed0a7</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SP PPTX Export">cafd48b307f52010d6f6f66c7c1ed0a7</sys_scope>
+        <sys_update_name>sp_widget_d95e8cb707392010d6f6f66c7c1ed045</sys_update_name>
+        <sys_updated_by>alberto</sys_updated_by>
+        <sys_updated_on>2021-01-25 19:56:46</sys_updated_on>
+        <template><![CDATA[<div>
+	<button class="btn btn-primary" ng-click="downloadPptx()">
+  	Download pptx
+  </button>
+</div>]]></template>
+    </sp_widget>
+</record_update>
